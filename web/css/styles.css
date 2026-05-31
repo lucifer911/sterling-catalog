@@ -1357,6 +1357,7 @@ button, input, select, textarea {
   object-fit: cover;
 }
 
+.company-about-content h1,
 .company-about-content h2 {
   font-size: 2.6rem;
   margin-bottom: 24px;
