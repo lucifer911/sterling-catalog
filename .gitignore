@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+.gemini/
+*images/airwrap/
+product images/
+crop_test.png

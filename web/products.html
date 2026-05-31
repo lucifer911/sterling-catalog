@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Wholesale Electronics Catalog | Brand New & Certified Refurbished | Sterling Technology</title>
+  <meta name="description" content="Browse our complete commercial inventory of ANC headsets, hair dryers, sonic electric toothbrushes, and high-performance Bitcoin ASIC miners. Access volume bulk margins.">
+  
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Glass Header -->
+  <header id="global-header"></header>
+
+  <div class="container">
+    <div class="catalog-layout">
+      
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar glass-panel">
+        <h2 style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-main); font-family: 'Outfit';">Refine Stock</h2>
+        
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <div class="filter-group-title">Equipment Type</div>
+          <label class="checkbox-label">
+            <input type="checkbox" name="category" value="headsets" class="checkbox-input">
+            <span>Audio Headsets</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="category" value="hairdryers" class="checkbox-input">
+            <span>Salon Hairdryers</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="category" value="toothbrushes" class="checkbox-input">
+            <span>Sonic Toothbrushes</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="category" value="btc_miners" class="checkbox-input">
+            <span>BTC ASIC Miners</span>
+          </label>
+        </div>
+        
+        <!-- Condition Filter -->
+        <div class="filter-group">
+          <div class="filter-group-title">Condition Standard</div>
+          <label class="checkbox-label">
+            <input type="checkbox" name="condition" value="New" class="checkbox-input">
+            <span>Brand New</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="condition" value="Refurbished" class="checkbox-input">
+            <span>Certified Refurbished</span>
+          </label>
+        </div>
+
+        <button id="clear-filters-btn" class="btn-ghost" style="width: 100%; padding: 10px; font-size: 0.85rem; border-color: var(--border-light); justify-content: center; text-transform: uppercase;">Clear Filters</button>
+      </aside>
+
+      <!-- Catalog Main Area -->
+      <main class="catalog-main">
+        
+        <!-- Search & Control Header -->
+        <div class="search-wrap">
+          <div class="search-input-box">
+            <input type="text" id="catalog-search" class="search-input" placeholder="Search bulk stocks, brand models, specifications, hardware hashes...">
+          </div>
+          <div class="view-toggle-btns" style="display: none;">
+            <!-- Included for markup completeness but hidden as grid is the core layout -->
+            <button class="view-btn active" id="grid-view-btn">Grid</button>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px; color: var(--text-muted); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+          <span id="results-count">Analyzing listings...</span>
+          <span id="sync-status" style="font-size: 0.8rem; background: var(--bg-secondary); padding: 4px 12px; border-radius: 50px; border: 1px solid var(--border-light); color: var(--text-muted);">Local Catalogue Mode</span>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="catalog-products-grid">
+          <!-- Will be loaded dynamically via Javascript -->
+          <div style="padding: 100px 0; text-align: center; grid-column: 1 / -1;">
+            <div class="typing-bubble" style="margin: 0 auto;"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+            <p style="margin-top: 16px; color: var(--text-muted);">Syncing stock details...</p>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="global-footer" class="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="./js/products-api.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/chatbot.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      let products = [];
+      const grid = document.getElementById("catalog-products-grid");
+      const searchInput = document.getElementById("catalog-search");
+      const resultsCountText = document.getElementById("results-count");
+      
+      const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
+      const conditionCheckboxes = document.querySelectorAll('input[name="condition"]');
+      const clearFiltersBtn = document.getElementById("clear-filters-btn");
+
+      // 1. Initial Data Fetch
+      try {
+        products = await getAllProducts();
+        
+        // Show status indicators if GITHUB sync config is active
+        if (typeof GITHUB_CONFIG !== 'undefined' && GITHUB_CONFIG.enabled) {
+          document.getElementById("sync-status").innerText = "GitHub Catalog Synced";
+          document.getElementById("sync-status").style.color = "var(--accent-blue)";
+        }
+        
+        // 2. Parse URL parameters for direct category filtering
+        parseUrlParams();
+        
+        // 3. Render Catalog
+        renderCatalog();
+      } catch (err) {
+        console.error("Failed to load catalog products:", err);
+        grid.innerHTML = `<div style="grid-column:1/-1; padding: 60px; text-align: center; color: var(--text-muted);">Error fetching wholesale database. Please check connectivity.</div>`;
+      }
+
+      // 4. Setup Filter Event Listeners
+      searchInput.addEventListener("input", renderCatalog);
+      categoryCheckboxes.forEach(cb => cb.addEventListener("change", renderCatalog));
+      conditionCheckboxes.forEach(cb => cb.addEventListener("change", renderCatalog));
+      
+      clearFiltersBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        categoryCheckboxes.forEach(cb => cb.checked = false);
+        conditionCheckboxes.forEach(cb => cb.checked = false);
+        renderCatalog();
+      });
+
+      /**
+       * Check query parameters in URL and pre-select filters
+       */
+      function parseUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        const categoryParam = params.get("category");
+        const conditionParam = params.get("condition");
+
+        if (categoryParam) {
+          categoryCheckboxes.forEach(cb => {
+            if (cb.value === categoryParam) cb.checked = true;
+          });
+        }
+        if (conditionParam) {
+          conditionCheckboxes.forEach(cb => {
+            if (cb.value === conditionParam) cb.checked = true;
+          });
+        }
+      }
+
+      /**
+       * Filter and render product list to grid
+       */
+      function renderCatalog() {
+        const searchQuery = searchInput.value.toLowerCase().trim();
+        
+        // Get checked category values
+        const selectedCategories = Array.from(categoryCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+
+        // Get checked condition values
+        const selectedConditions = Array.from(conditionCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+
+        // Perform multi-criteria filter
+        const filteredProducts = products.filter(product => {
+          // Category match
+          if (selectedCategories.length > 0 && !selectedCategories.includes(product.category)) {
+            return false;
+          }
+
+          // Condition match
+          if (selectedConditions.length > 0 && !selectedConditions.includes(product.condition)) {
+            return false;
+          }
+
+          // Search term match (check title, category, highlights and specs)
+          if (searchQuery) {
+            const matchTitle = product.name.toLowerCase().includes(searchQuery);
+            const matchCat = product.category.replace('_', ' ').toLowerCase().includes(searchQuery);
+            const matchHighlights = product.highlights.some(hl => hl.toLowerCase().includes(searchQuery));
+            const matchSpecs = Object.entries(product.specs).some(([k, v]) => 
+              k.toLowerCase().includes(searchQuery) || v.toLowerCase().includes(searchQuery)
+            );
+            
+            return matchTitle || matchCat || matchHighlights || matchSpecs;
+          }
+
+          return true;
+        });
+
+        // Clear grid and render cards
+        grid.innerHTML = "";
+        resultsCountText.innerText = `Showing ${filteredProducts.length} wholesale assets`;
+
+        if (filteredProducts.length === 0) {
+          grid.innerHTML = `
+            <div style="grid-column: 1 / -1; padding: 80px 24px; text-align: center; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px dashed var(--border-light);">
+              <h3 style="font-size:1.4rem; color: var(--text-main); margin-bottom: 8px;">No Stock Matches Found</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">Try modifying search terms or checkboxes to discover available lots.</p>
+            </div>
+          `;
+          return;
+        }
+
+        filteredProducts.forEach(product => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          
+          const condBadgeClass = product.condition === "New" ? "badge-new" : "badge-refurbished";
+          
+          card.innerHTML = `
+            <div class="product-card-img-wrap">
+              <span class="product-condition-badge ${condBadgeClass}">${product.condition}</span>
+              <img src="${product.images[0]}" alt="${product.name}" class="product-card-img" loading="lazy">
+            </div>
+            <div class="product-card-content">
+              <span class="product-card-cat">${product.category.replace('_', ' ')}</span>
+              <h3 class="product-card-title">${product.name}</h3>
+              <div class="product-card-info-row">
+                <div>
+                  <span class="product-card-price-label">Wholesale Est.</span>
+                  <div class="product-card-price">${product.price_wholesale_range}</div>
+                </div>
+                <div style="text-align: right;">
+                  <span class="product-card-moq">Min. MOQ: <strong>${product.moq}</strong></span>
+                  <a href="product-detail.html?id=${product.id}" class="nav-link" style="display: block; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; margin-top: 4px; color: var(--text-main);">
+                    Calculate Quote →
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

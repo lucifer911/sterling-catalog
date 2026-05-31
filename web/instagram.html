@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Operations Instagram Showroom | Behind The Scenes | Sterling Technology</title>
+  <meta name="description" content="Take a digital tour through our processing and warehousing facilities. See how we check headsets, hairdryers, and BTC miners in our diagnostic testing suites.">
+  
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Glass Header -->
+  <header id="global-header"></header>
+
+  <main class="container" style="padding-top: 140px;">
+    
+    <div class="section-header">
+      <div class="section-subtitle">Live Operations Feed</div>
+      <h2 class="section-title">Behind The Scenes on <span>Instagram</span></h2>
+      <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 16px; max-width: 680px; margin-left: auto; margin-right: auto;">
+        Real-time snapshots of our commercial warehousing lines, rigorous refurb diagnostics, clean-room sanitization procedures, and wholesale shipments leaving our docks.
+      </p>
+    </div>
+
+    <!-- Instagram Grid Layout -->
+    <div class="instagram-grid" id="insta-grid-container">
+      <!-- Cards will be dynamically injected by JS with realistic descriptions and overlays -->
+    </div>
+
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="modal-overlay" id="lightbox-modal">
+    <div class="modal-content glass-panel" style="max-width: 780px; padding: 20px; background: white; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center;">
+      <button class="close-modal-btn" id="close-lightbox" style="top: 16px; right: 16px;">&times;</button>
+      
+      <div style="width: 100%; aspect-ratio: 1.4; border-radius: var(--radius-sm); overflow: hidden; background: var(--bg-secondary); border: 1px solid var(--border-light); margin-bottom: 16px;">
+        <img src="" alt="" id="lightbox-img" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      
+      <div style="width: 100%; text-align: left; padding: 0 12px;">
+        <div style="display: flex; gap: 16px; font-weight: 700; font-size: 1rem; color: var(--text-main); margin-bottom: 8px;" id="lightbox-stats">
+          <span>❤️ 0 Likes</span>
+          <span>💬 0 Comments</span>
+        </div>
+        <p id="lightbox-caption" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;"></p>
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--silver-dark); font-weight: 700; margin-top: 12px; letter-spacing: 0.05em;">STERLING INSTA HUB • OPERATIONS AUDIT</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="global-footer" class="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="./js/products-api.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/chatbot.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Dataset representing warehouse snaps
+      const instaPosts = [
+        {
+          image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+          caption: "Calibrating internal driver chips on a refurbished batch of Aurora Pro Headsets. Our diagnostic test rigs guarantee balance decibel consistency. 🎧 #engineering #testing #refurbished #qualitycheck",
+          likes: 245,
+          comments: 18
+        },
+        {
+          image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+          caption: "Bulk volume shipment palleted and sealed. This batch of 600 AeroSilver Ionic hairdryers is bound for commercial supply outlets in Europe. ✈️📦 #freight #wholesale #logistics #export",
+          likes: 184,
+          comments: 9
+        },
+        {
+          image: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=800&q=80",
+          caption: "A completed burn-in stack of ASIC BTC Miners. Restored fans running at 98% CFM airflow rates to ensure thermal stability at peak hash efficiency. ⚡️⛏️ #btcmining #asicminer #hardware #crypto",
+          likes: 312,
+          comments: 42
+        },
+        {
+          image: "https://images.unsplash.com/photo-1563170351-be82c888a478?auto=format&fit=crop&w=800&q=80",
+          caption: "Clean-room aesthetics. Reviewing aesthetic packaging lines to make sure our wholesale lots arrive ready for premium shelf space or online retail distribution. ✨ #boxing #retailready #premium",
+          likes: 156,
+          comments: 14
+        },
+        {
+          image: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=800&q=80",
+          caption: "Individual sanitization verification. SonicGlow electric toothbrushes going through high-intensity UV-C sterilization chambers before final vacuum wrapping. 🧼🦷 #hygiene #sterilization #hightech",
+          likes: 198,
+          comments: 11
+        },
+        {
+          image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80",
+          caption: "Diagnostic engineering. Using high-resolution oscillioscopes to verify motherboard stability on incoming wholesale lots before processing begins. 🛠️📊 #oscilliosecope #diags #circuitry",
+          likes: 224,
+          comments: 26
+        },
+        {
+          image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+          caption: "Supply chain briefing. Our dispatch team reviewing container schedules to align port customs clearance times for larger BTC miner ocean imports. 🚢📊 #teamwork #supplychain #shipping",
+          likes: 172,
+          comments: 8
+        },
+        {
+          image: "https://images.unsplash.com/photo-1631553127988-34842e836916?auto=format&fit=crop&w=800&q=80",
+          caption: "Refurbished assembly validation. Replacing worn-out batteries with certified high-life cells inside our electric toothbrush models. Extended life is our key standard. 🔋⚙️ #refurbishing #circuits #clean",
+          likes: 209,
+          comments: 17
+        },
+        {
+          image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=800&q=80",
+          caption: "Sound profile auditing. Acoustic checking room where headset frequency responses are dynamically plotted. Zero distortion is our baseline threshold. 🎧⚡ #acousticcheck #audio #audiophile",
+          likes: 278,
+          comments: 31
+        }
+      ];
+
+      const grid = document.getElementById("insta-grid-container");
+      const lightboxModal = document.getElementById("lightbox-modal");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxStats = document.getElementById("lightbox-stats");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+
+      // 2. Render Cards
+      grid.innerHTML = "";
+      instaPosts.forEach(post => {
+        const card = document.createElement("div");
+        card.className = "insta-card";
+        card.innerHTML = `
+          <img src="${post.image}" alt="Behind the scenes warehouse operations" class="insta-img" loading="lazy">
+          <div class="insta-overlay">
+            <div class="insta-stats">
+              <span>❤️ ${post.likes}</span>
+              <span>💬 ${post.comments}</span>
+            </div>
+            <p class="insta-caption">${post.caption.substring(0, 100)}...</p>
+            <div style="font-size: 0.7rem; font-weight: 700; color: var(--silver-dark); text-transform: uppercase; margin-top: auto; letter-spacing: 0.05em;">View Warehouse Details</div>
+          </div>
+        `;
+
+        // Event: Click card to open image in lightbox
+        card.addEventListener("click", () => {
+          lightboxImg.src = post.image;
+          lightboxImg.alt = post.caption;
+          lightboxStats.innerHTML = `<span>❤️ ${post.likes} Likes</span> <span>💬 ${post.comments} Comments</span>`;
+          lightboxCaption.innerText = post.caption;
+          
+          lightboxModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+
+        grid.appendChild(card);
+      });
+
+      // 3. Setup Lightbox Close
+      setupModalToggle("lightbox-modal", ".dummy-nonexistent-class", "close-lightbox");
+    });
+  </script>
+</body>
+</html>

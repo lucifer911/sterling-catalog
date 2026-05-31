@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Wholesale Specifications & Quote | Sterling Technology</title>
+  <meta name="description" content="Review detailed commercial product specifications, minimum order quantity (MOQ) conditions, and calculate dynamic wholesale volume bulk discount rates instantly.">
+  
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Glass Header -->
+  <header id="global-header"></header>
+
+  <main class="container detail-layout">
+    
+    <!-- Error or Loading Container -->
+    <div id="detail-loading" style="padding: 120px 0; text-align: center;">
+      <div class="typing-bubble" style="margin: 0 auto;"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+      <p style="margin-top: 16px; color: var(--text-muted);">Syncing asset specifications...</p>
+    </div>
+
+    <!-- Main Detail Content Grid (Initially Hidden) -->
+    <div id="detail-content" style="display: none;">
+      
+      <!-- Back Link -->
+      <div style="margin-bottom: 30px;">
+        <a href="products.html" class="nav-link" style="font-weight: 700; font-size: 0.95rem; text-transform: uppercase;">← Back to Wholesale Catalog</a>
+      </div>
+
+      <div class="detail-grid">
+        
+        <!-- Left: Image Gallery & Quality Shield -->
+        <div class="detail-gallery">
+          <div class="gallery-main-wrap">
+            <img src="" alt="" id="gallery-main-img" class="gallery-main">
+          </div>
+          <div class="gallery-thumbs" id="gallery-thumbs-container">
+            <!-- Dynamic Thumbnails -->
+          </div>
+
+          <!-- Quality Refurbished Shield Widget -->
+          <div class="quality-shield glass-panel" id="quality-shield-card" style="margin-top: 40px;">
+            <div class="quality-shield-icon">
+              <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: hsl(220, 30%, 15%); stroke-width: 2; fill: none;">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="quality-shield-text">
+              <h4 id="quality-title">Wholesale Quality Guaranteed</h4>
+              <p id="quality-desc">This product has been thoroughly checked to ensure it operates at maximum factory parameters.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Meta details & Wholesale Pricing Calculator -->
+        <div class="detail-info">
+          <span class="product-card-cat" id="detail-category" style="font-size: 0.9rem; margin-bottom: 12px;">Category</span>
+          <h1 class="detail-title" id="detail-title">Product Name</h1>
+          
+          <div class="detail-meta-row">
+            <span class="product-condition-badge" id="detail-condition">New</span>
+            <span style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;" id="detail-stock-count">In Stock</span>
+          </div>
+
+          <p class="hero-desc" id="detail-desc" style="margin-bottom: 24px; font-size: 1.05rem;">Description content goes here.</p>
+
+          <div class="detail-price-box">
+            <h4>Estimated Wholesale Value Per Unit</h4>
+            <div class="detail-price-val" id="detail-price-range">$0.00 - $0.00</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">Final cost subject to commercial volume tiers below.</div>
+          </div>
+
+          <h3 style="font-size: 1.1rem; margin-bottom: 16px; text-transform: uppercase; color: var(--text-main); font-family: 'Outfit';">Commercial Highlights</h3>
+          <ul class="detail-highlights" id="detail-highlights-list">
+            <!-- Dynamic highlights -->
+          </ul>
+
+          <!-- Interactive Wholesale Calculator -->
+          <div class="calculator-box glass-panel">
+            <h3 class="calculator-title">Volume Pricing Calculator</h3>
+            
+            <div class="calc-row">
+              <div class="calc-input-wrap">
+                <label for="calc-quantity">Target Order Qty</label>
+                <input type="number" id="calc-quantity" class="calc-input" min="1" value="50">
+              </div>
+              <div class="calc-input-wrap">
+                <label>Minimum MOQ</label>
+                <div id="calc-moq-display" style="font-size: 1.3rem; font-weight: 800; color: var(--text-main); padding-top: 8px;">50 Units</div>
+              </div>
+            </div>
+
+            <!-- MOQ Warning Warning -->
+            <div id="moq-warning" style="display: none; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-sm); color: hsl(0, 75%, 45%); font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; text-align: center;">
+              ⚠️ Quantity is below the required Minimum Order Quantity (MOQ).
+            </div>
+
+            <div class="calc-result-panel">
+              <div class="calc-result-row">
+                <span>Base Unit Price:</span>
+                <span class="val" id="calc-base-unit">$0.00</span>
+              </div>
+              <div class="calc-result-row">
+                <span>Volume Discount Applied:</span>
+                <span class="val" id="calc-discount-tier" style="color: var(--accent-emerald);">0% Off</span>
+              </div>
+              <div class="calc-result-row">
+                <span>Adjusted Unit Price:</span>
+                <span class="val" id="calc-adjusted-unit" style="font-weight: 800;">$0.00</span>
+              </div>
+              <div class="calc-result-row">
+                <span>Total Quote Estimate:</span>
+                <span class="val-large" id="calc-total">$0.00</span>
+              </div>
+            </div>
+
+            <button class="btn-silver" id="open-quote-modal-btn" style="width: 100%; justify-content: center;">Submit Quote Request</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Complete Technical Specifications -->
+      <div class="specs-table-wrap">
+        <h2 class="specs-title">Technical Specifications</h2>
+        <table class="specs-table">
+          <tbody id="specs-table-body">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Quote Intake Modal -->
+  <div class="modal-overlay" id="quote-modal">
+    <div class="modal-content glass-panel" style="background: white; border-radius: var(--radius-lg);">
+      <button class="close-modal-btn" id="close-quote-modal">&times;</button>
+      
+      <h2 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 8px;">Request Wholesale Quote</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 28px;">Submit your trade inquiries below. A logistics account director will reply within 4 hours.</p>
+      
+      <form id="quote-request-form">
+        <!-- Prefilled details -->
+        <input type="hidden" id="modal-product-id">
+        
+        <div class="form-group">
+          <label>Selected Asset / Qty</label>
+          <input type="text" id="modal-product-summary" class="form-control" style="background: var(--bg-secondary); font-weight: 700; border-color: var(--border-light);" readonly>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quote-biz-name">Company Legal Name *</label>
+            <input type="text" id="quote-biz-name" class="form-control" placeholder="e.g. Nexus Electronics Ltd" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-email">Corporate Email Address *</label>
+            <input type="email" id="quote-email" class="form-control" placeholder="buyer@company.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quote-dest">Destination Port/Country *</label>
+            <input type="text" id="quote-dest" class="form-control" placeholder="e.g. Rotterdam, Netherlands" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-timeline">Target Timeline *</label>
+            <select id="quote-timeline" class="form-control" required>
+              <option value="">-- Select Timeline --</option>
+              <option value="immediate">Immediate Dispatch (< 14 days)</option>
+              <option value="next_month">Next 30 Days</option>
+              <option value="quarterly">Quarterly Supply Chain Contract</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="quote-notes">Logistics Specifications or Special Packing Instructions</label>
+          <textarea id="quote-notes" class="form-control" rows="3" placeholder="Specify if custom branding, custom power cords, wholesale freight, or palletizing is required..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-silver" style="width: 100%; justify-content: center; margin-top: 10px;">Submit Commercial Bid</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="global-footer" class="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="./js/products-api.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/chatbot.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      // 1. Extract dynamic product ID from query parameter
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("id");
+
+      if (!productId) {
+        showErrorState("No product ID specified in URL. Please choose a stock lot from the products tab.");
+        return;
+      }
+
+      // 2. Load Item data
+      try {
+        const product = await getProductById(productId);
+        if (!product) {
+          showErrorState(`Commercial listing with code "${productId}" could not be found or has sold out.`);
+          return;
+        }
+        
+        // 3. Populate Page Specific Layouts
+        populatePageDetails(product);
+        
+        // 4. Setup Volume Calculator Interaction
+        setupWholesaleCalculator(product);
+
+        // 5. Setup Quote Request Form Modal
+        setupModalToggle("quote-modal", "#open-quote-modal-btn", "close-quote-modal");
+        setupModalSubmission(product);
+
+        // Transition views
+        document.getElementById("detail-loading").style.display = "none";
+        document.getElementById("detail-content").style.display = "block";
+
+      } catch (err) {
+        console.error("Error setting up product details:", err);
+        showErrorState("Failed to retrieve listings from inventory. Check network status and try again.");
+      }
+
+      /**
+       * Injects error messaging into loading state
+       */
+      function showErrorState(msg) {
+        const loader = document.getElementById("detail-loading");
+        loader.innerHTML = `
+          <div style="max-width: 480px; margin: 0 auto; padding: 40px; background: rgba(239, 68, 68, 0.05); border-radius: var(--radius-md); border: 1px solid rgba(239, 68, 68, 0.2);">
+            <h3 style="font-size:1.4rem; color: var(--text-main); margin-bottom: 12px;">Listing Unavailable</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">${msg}</p>
+            <a href="products.html" class="btn-silver">Return to Catalog</a>
+          </div>
+        `;
+      }
+
+      /**
+       * Populates text, specs, and image galleries
+       */
+      function populatePageDetails(product) {
+        // Change meta SEO Title
+        document.title = `${product.name} | Wholesale Specs & Pricing | Sterling Technology`;
+        
+        document.getElementById("detail-category").innerText = product.category.replace('_', ' ');
+        document.getElementById("detail-title").innerText = product.name;
+        
+        // --- DYNAMIC STRUCTURED DATA (JSON-LD) ---
+        try {
+          const existingScript = document.getElementById("dynamic-jsonld");
+          if (existingScript) existingScript.remove();
+          
+          const script = document.createElement("script");
+          script.type = "application/ld+json";
+          script.id = "dynamic-jsonld";
+          
+          const maxDiscount = product.discount_tiers[product.discount_tiers.length - 1].discount_pct;
+          const lowEstimatedVal = product.price_wholesale_base * (1 - (maxDiscount / 100));
+          
+          const ldData = {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.name,
+            "image": product.images,
+            "description": product.condition_desc,
+            "sku": product.id,
+            "mpn": product.id,
+            "brand": {
+              "@type": "Brand",
+              "name": "Sterling Technology"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "USD",
+              "lowPrice": lowEstimatedVal.toFixed(2),
+              "highPrice": product.price_wholesale_base.toFixed(2),
+              "offerCount": product.discount_tiers.length,
+              "itemCondition": product.condition === "New" ? "https://schema.org/NewCondition" : "https://schema.org/RefurbishedCondition",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Sterling Technology"
+              }
+            }
+          };
+          
+          script.textContent = JSON.stringify(ldData);
+          document.head.appendChild(script);
+          console.log("[SEO Service] Dynamic JSON-LD Structured Schema successfully injected.");
+        } catch (schemaErr) {
+          console.error("Failed to inject JSON-LD schema:", schemaErr);
+        }
+        
+        // Condition badge styling
+        const condBadge = document.getElementById("detail-condition");
+        condBadge.innerText = product.condition;
+        condBadge.className = `product-condition-badge ${product.condition === "New" ? "badge-new" : "badge-refurbished"}`;
+        
+        // Stock count mock
+        document.getElementById("detail-stock-count").innerText = `${product.stock.toLocaleString()} Units Available`;
+        document.getElementById("detail-desc").innerText = product.condition_desc;
+        document.getElementById("detail-price-range").innerText = `${product.price_wholesale_range} per unit`;
+
+        // Refurbishment Quality Shield Details override
+        if (product.condition === "Refurbished") {
+          document.getElementById("quality-title").innerText = "Certified Refurbishment Standard";
+          document.getElementById("quality-desc").innerText = "Fully audited hardware. Thorough structural diagnostics, sanitization, electrical safety tests, and a 90-day wholesale warrantied assurance.";
+        } else {
+          document.getElementById("quality-title").innerText = "Brand New / Factory Sealed";
+          document.getElementById("quality-desc").innerText = "Direct distribution source. Factory shrink-wrapped, complete with OEM warranties, accessories, and clean retail branding boxes.";
+        }
+
+        // Image Gallery Loader
+        const mainImg = document.getElementById("gallery-main-img");
+        mainImg.src = product.images[0];
+        mainImg.alt = product.name;
+
+        const thumbsContainer = document.getElementById("gallery-thumbs-container");
+        thumbsContainer.innerHTML = "";
+        
+        product.images.forEach((imgUrl, idx) => {
+          const thumb = document.createElement("div");
+          thumb.className = `gallery-thumb ${idx === 0 ? "active" : ""}`;
+          thumb.innerHTML = `<img src="${imgUrl}" alt="${product.name} thumb ${idx + 1}">`;
+          
+          thumb.addEventListener("click", () => {
+            mainImg.src = imgUrl;
+            document.querySelectorAll(".gallery-thumb").forEach(t => t.classList.remove("active"));
+            thumb.classList.add("active");
+          });
+          
+          thumbsContainer.appendChild(thumb);
+        });
+
+        // Highlights list
+        const highlightsUl = document.getElementById("detail-highlights-list");
+        highlightsUl.innerHTML = "";
+        product.highlights.forEach(hl => {
+          const li = document.createElement("li");
+          li.innerText = hl;
+          highlightsUl.appendChild(li);
+        });
+
+        // Technical Specs Table
+        const specsTbody = document.getElementById("specs-table-body");
+        specsTbody.innerHTML = "";
+        Object.entries(product.specs).forEach(([key, val]) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${key}</td>
+            <td>${val}</td>
+          `;
+          specsTbody.appendChild(row);
+        });
+      }
+
+      /**
+       * Handles wholesale tiered rate computations
+       */
+      function setupWholesaleCalculator(product) {
+        const qtyInput = document.getElementById("calc-quantity");
+        const moqDisplay = document.getElementById("calc-moq-display");
+        const moqWarning = document.getElementById("moq-warning");
+        const quoteBtn = document.getElementById("open-quote-modal-btn");
+        
+        const calcBaseUnit = document.getElementById("calc-base-unit");
+        const calcDiscountTier = document.getElementById("calc-discount-tier");
+        const calcAdjustedUnit = document.getElementById("calc-adjusted-unit");
+        const calcTotal = document.getElementById("calc-total");
+
+        // Preset calculator settings based on item specs
+        qtyInput.value = product.moq;
+        qtyInput.min = Math.floor(product.moq / 2); // Allow playing around below MOQ
+        moqDisplay.innerText = `${product.moq} Units`;
+
+        const updateCalculator = () => {
+          const qty = parseInt(qtyInput.value) || 0;
+          
+          // Verify MOQ constraints
+          if (qty < product.moq) {
+            moqWarning.style.display = "block";
+            quoteBtn.disabled = true;
+            quoteBtn.style.opacity = "0.5";
+            quoteBtn.style.cursor = "not-allowed";
+          } else {
+            moqWarning.style.display = "none";
+            quoteBtn.disabled = false;
+            quoteBtn.style.opacity = "";
+            quoteBtn.style.cursor = "";
+          }
+
+          // Compute Discount percentage based on tiers
+          let discountPct = 0;
+          let activeTier = null;
+          
+          // Find matching tier
+          product.discount_tiers.forEach(tier => {
+            if (qty >= tier.min_qty) {
+              discountPct = tier.discount_pct;
+              activeTier = tier;
+            }
+          });
+
+          // Math estimations
+          const basePrice = product.price_wholesale_base;
+          const adjustedPrice = basePrice * (1 - (discountPct / 100));
+          const totalCost = qty * adjustedPrice;
+
+          // UI updates
+          calcBaseUnit.innerText = `$${basePrice.toFixed(2)}`;
+          calcDiscountTier.innerText = discountPct > 0 ? `${discountPct}% Off Volume Tier` : `0% Off (MOQ Base Rate)`;
+          calcAdjustedUnit.innerText = `$${adjustedPrice.toFixed(2)}`;
+          calcTotal.innerText = `$${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+          // Prefill Modal fields in real time
+          document.getElementById("modal-product-summary").value = `${product.name} — Qty: ${qty} units (@ $${adjustedPrice.toFixed(2)}/unit)`;
+        };
+
+        // Listeners
+        qtyInput.addEventListener("input", updateCalculator);
+        updateCalculator(); // Initialize on setup
+      }
+
+      /**
+       * Handle quote request form submission
+       */
+      function setupModalSubmission(product) {
+        const form = document.getElementById("quote-request-form");
+        const modal = document.getElementById("quote-modal");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          
+          const bizName = document.getElementById("quote-biz-name").value;
+          const buyerEmail = document.getElementById("quote-email").value;
+          const qtySelected = document.getElementById("calc-quantity").value;
+
+          // Display success state inside Modal
+          const modalContent = document.querySelector(".modal-content");
+          const originalHTML = modalContent.innerHTML;
+
+          modalContent.innerHTML = `
+            <div style="text-align: center; padding: 40px 20px;">
+              <div class="quality-shield-icon" style="margin: 0 auto 24px auto; width: 64px; height: 64px; background: var(--bg-secondary);">
+                <svg viewBox="0 0 24 24" style="width: 32px; height: 32px; stroke: var(--accent-emerald); stroke-width: 2.2; fill: none;">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <h2 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 12px; color: var(--text-main);">Wholesale Inquiry Filed</h2>
+              <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6;">
+                Thank you. We have successfully registered your commercial interest for <strong>${qtySelected} units</strong> of <strong>${product.name}</strong>.
+              </p>
+              <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); font-size: 0.85rem; margin-bottom: 30px; text-align: left;">
+                <strong>Tracking ID:</strong> W-${Math.floor(100000 + Math.random() * 900000)}<br>
+                <strong>Company:</strong> ${bizName}<br>
+                <strong>Contact Point:</strong> ${buyerEmail}
+              </div>
+              <button class="btn-silver" id="modal-success-done" style="width: 100%; justify-content: center;">Done</button>
+            </div>
+          `;
+
+          // Bind close click to success done button
+          document.getElementById("modal-success-done").addEventListener("click", () => {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+            // Reset form by reloading or restoring HTML after closure
+            setTimeout(() => {
+              modalContent.innerHTML = originalHTML;
+              setupModalToggle("quote-modal", "#open-quote-modal-btn", "close-quote-modal");
+              setupModalSubmission(product);
+              // Re-run setup calculator to re-sync quantity pre-fills
+              setupWholesaleCalculator(product);
+            }, 500);
+          });
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
