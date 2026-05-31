@@ -3,13 +3,8 @@ node_modules/
 .gemini/
 product images/
 
-# Exclude website HTML pages
-web/*.html
-
-# Exclude styling and scripting source code
-web/css/
-web/js/
-
-# Keep the dynamic catalog JSON and image subfolders
-!web/data/products.json
-!web/images/
+# Exclude private developer-only guides and internal docs
+git_info/
+docs/
+CLAUDE.md
+crop_test.png
