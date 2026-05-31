@@ -161,7 +161,7 @@
     "price_wholesale_base": 79.99,
     "moq": 20,
     "featured": false,
-    "new_arrival": false,
+    "new_arrival": true,
     "stock": 510,
     "specs": {
       "Brand": "Skullcandy",
@@ -236,7 +236,7 @@
     "price_wholesale_base": 189.95,
     "moq": 8,
     "featured": false,
-    "new_arrival": false,
+    "new_arrival": true,
     "stock": 75,
     "specs": {
       "Brand": "Dyson",
@@ -274,7 +274,7 @@
     "price_wholesale_base": 189.95,
     "moq": 8,
     "featured": false,
-    "new_arrival": false,
+    "new_arrival": true,
     "stock": 64,
     "specs": {
       "Brand": "Dyson",
@@ -426,7 +426,7 @@
     "price_wholesale_base": 57.99,
     "moq": 15,
     "featured": false,
-    "new_arrival": false,
+    "new_arrival": true,
     "stock": 290,
     "specs": {
       "Brand": "Skullcandy",
@@ -462,7 +462,7 @@
     "price_wholesale_range": "$249.95 - $299.95",
     "price_wholesale_base": 299.95,
     "moq": 5,
-    "featured": false,
+    "featured": true,
     "new_arrival": false,
     "stock": 68,
     "specs": {
