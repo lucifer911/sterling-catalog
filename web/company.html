@@ -69,31 +69,113 @@
     </div>
   </section>
 
-  <!-- Section 3: Wholesale Intake Form -->
-  <section class="container section-margin glass-panel intake-layout" id="inquiry">
+  <!-- Section 3: Local Repair Services & Pricing Directory -->
+  <section class="container section-margin glass-panel" id="repair" style="padding: 60px 40px; border-radius: var(--radius-lg); scroll-margin-top: 100px;">
+    <div class="section-header">
+      <div class="section-subtitle">Vaughan & Toronto Repair Desk</div>
+      <h2 class="section-title">Ontario’s Premier <span>Electronics Service Silo</span></h2>
+      <p style="color: var(--text-muted); font-size: 1rem; max-width: 700px; margin: 16px auto 0 auto;">
+        We provide professional-grade diagnostics and hardware restoration. Our dedicated Canadian testing lab handles everything from advanced high-speed motor rewinding to precise micro-soldering on Bitcoin ASIC hashboards.
+      </p>
+    </div>
+
+    <!-- Repair Services Pricing Table -->
+    <div style="overflow-x: auto; margin-top: 40px; border: 1px solid var(--border-light); border-radius: var(--radius-md); background: rgba(0,0,0,0.02);">
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+        <thead>
+          <tr style="background: rgba(0,0,0,0.05); border-bottom: 2px solid var(--border-light); color: var(--text-main); font-weight: 700;">
+            <th style="padding: 16px;">Device Category</th>
+            <th style="padding: 16px;">Supported Brands & Models</th>
+            <th style="padding: 16px; text-align: center;">Base Diagnostic</th>
+            <th style="padding: 16px; text-align: center;">Est. Turnaround</th>
+            <th style="padding: 16px; text-align: center;">Service Warranty</th>
+          </tr>
+        </thead>
+        <tbody style="color: var(--text-muted);">
+          <tr style="border-bottom: 1px solid var(--border-light); hover: background: rgba(0,0,0,0.01);">
+            <td style="padding: 16px; font-weight: 700; color: var(--text-main);">🎧 Over-Ear Headphones</td>
+            <td style="padding: 16px;">Bose QuietComfort (QC35/QC45), Skullcandy Crusher, Sony WH-1000XM4/XM5, Beats Studio, Sennheiser HD Series</td>
+            <td style="padding: 16px; text-align: center; color: #ea580c; font-weight: 700;">$39.99 CAD</td>
+            <td style="padding: 16px; text-align: center;">2 - 3 Days</td>
+            <td style="padding: 16px; text-align: center; font-weight: 700; color: var(--accent-emerald);">180 Days</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-light);">
+            <td style="padding: 16px; font-weight: 700; color: var(--text-main);">⛏️ ASIC Crypto Miners</td>
+            <td style="padding: 16px;">Bitmain Antminer (S19, S19 Pro, S21, L7, L9), MicroBT Whatsminer Series (M30S, M50S)</td>
+            <td style="padding: 16px; text-align: center; color: #ea580c; font-weight: 700;">$89.99 CAD</td>
+            <td style="padding: 16px; text-align: center;">5 - 7 Days</td>
+            <td style="padding: 16px; text-align: center; font-weight: 700; color: var(--accent-emerald);">90 Days</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-light);">
+            <td style="padding: 16px; font-weight: 700; color: var(--text-main);">🌪️ Hair Dryers & Stylers</td>
+            <td style="padding: 16px;">Dyson Supersonic (HD01/HD03/HD08), Dyson Airwrap Multi-Styler (HS01, HS05)</td>
+            <td style="padding: 16px; text-align: center; color: #ea580c; font-weight: 700;">$49.99 CAD</td>
+            <td style="padding: 16px; text-align: center;">3 - 5 Days</td>
+            <td style="padding: 16px; text-align: center; font-weight: 700; color: var(--accent-emerald);">180 Days</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-light);">
+            <td style="padding: 16px; font-weight: 700; color: var(--text-main);">🎙️ Gaming Headsets</td>
+            <td style="padding: 16px;">Astro A40/A50, Turtle Beach, SteelSeries Arctis, Razer BlackShark Series</td>
+            <td style="padding: 16px; text-align: center; color: #ea580c; font-weight: 700;">$39.99 CAD</td>
+            <td style="padding: 16px; text-align: center;">1 - 2 Days</td>
+            <td style="padding: 16px; text-align: center; font-weight: 700; color: var(--accent-emerald);">180 Days</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px; font-weight: 700; color: var(--text-main);">🍏 Wireless Earbuds</td>
+            <td style="padding: 16px;">Apple AirPods & AirPods Pro, Skullcandy Push ANC, Sony LinkBuds, Pixel Buds</td>
+            <td style="padding: 16px; text-align: center; color: #ea580c; font-weight: 700;">$29.99 CAD</td>
+            <td style="padding: 16px; text-align: center;">1 - 2 Days</td>
+            <td style="padding: 16px; text-align: center; font-weight: 700; color: var(--accent-emerald);">90 Days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Local SEO FAQ Silo -->
+    <div style="margin-top: 50px;">
+      <h3 style="font-family: 'Outfit'; font-size: 1.6rem; font-weight: 900; margin-bottom: 24px; text-align: center;">Common Diagnostics & Local FAQ</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div class="glass-panel" style="padding: 24px; border-radius: var(--radius-md);">
+          <strong style="color: var(--text-main); font-size: 1.05rem; display: block; margin-bottom: 8px;">❓ Why do Bose QuietComfort headphones stop charging?</strong>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">This is typically triggered by a locked battery management thermistor or micro-fuse burnout on the main charging board. Our Vaughan audio lab repairs these components under microscope-soldering, restoring full charging cycles without needing a whole motherboard replacement.</p>
+        </div>
+        <div class="glass-panel" style="padding: 24px; border-radius: var(--radius-md);">
+          <strong style="color: var(--text-main); font-size: 1.05rem; display: block; margin-bottom: 8px;">❓ What are common signs an ASIC miner hashboard is failing?</strong>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">If your dashboard reports missing ASIC chips, high operating temperature alerts on specific chains, or a severe drop in hashing rate, your hashboard has burnt capacitors or failing hash chips. Our Ontario hardware lab performs exact heat-gun chip reflowing and capacitor replacements.</p>
+        </div>
+        <div class="glass-panel" style="padding: 24px; border-radius: var(--radius-md);">
+          <strong style="color: var(--text-main); font-size: 1.05rem; display: block; margin-bottom: 8px;">❓ Why does static occur in Skullcandy Crusher bass sliders?</strong>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">Dust and moisture build up on the potentiometer track over time, causing crackling or bass loss. We perform a complete solvent ultrasonic cleaning of the slider assembly, or desolder and replace the slide potentiometer with a brand new OEM part.</p>
+        </div>
+        <div class="glass-panel" style="padding: 24px; border-radius: var(--radius-md);">
+          <strong style="color: var(--text-main); font-size: 1.05rem; display: block; margin-bottom: 8px;">❓ How do Vaughan drop-offs and Ontario shipping works?</strong>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">You can schedule a physical drop-off at our Vaughan headquarters (GTA) or ship your hardware securely via Canada Post. We issue detailed diagnostic tracking codes, keeping you fully updated on repair status from intake audit to stress-test approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Dual-Mode Wholesale & Repair Request Portal -->
+  <section class="container section-margin glass-panel intake-layout" id="inquiry" style="scroll-margin-top: 100px;">
     <div id="form-container">
-      <h2>Commercial Partner Intake</h2>
-      <p>Register your corporate distribution profile below to gain access to detailed warehouse pricing Sheets, custom shipping allocations, and port clearing terms.</p>
+      <!-- Dual Mode Selector Toggle -->
+      <div class="form-toggle-wrap" style="display: flex; gap: 8px; margin-bottom: 28px; background: rgba(0,0,0,0.04); padding: 6px; border-radius: var(--radius-md); width: fit-content; border: 1px solid var(--border-light);">
+        <button type="button" class="btn-toggle active" id="toggle-wholesale" style="background: var(--accent-gold); color: black; border: none; padding: 10px 20px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.3s;">Commercial Sourcing</button>
+        <button type="button" class="btn-toggle" id="toggle-repair" style="background: transparent; color: var(--text-muted); border: none; padding: 10px 20px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.3s;">Book A Repair / Quote</button>
+      </div>
+
+      <h2 id="form-title">Commercial Partner Intake</h2>
+      <p id="form-subtitle">Register your corporate distribution profile below to gain access to detailed warehouse pricing sheets, custom shipping allocations, and port clearing terms.</p>
       
       <form id="wholesale-partner-form">
+        <!-- Common Contact Name row -->
         <div class="form-row">
           <div class="form-group">
-            <label for="partner-biz-name">Company Legal Name *</label>
-            <input type="text" id="partner-biz-name" class="form-control" placeholder="e.g. Paramount Brands Inc" required>
-          </div>
-          <div class="form-group">
-            <label for="partner-tax-id">Trade License / Tax ID (Optional)</label>
-            <input type="text" id="partner-tax-id" class="form-control" placeholder="e.g. EU-987654321 or US-EIN">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="partner-contact-name">Representative Name *</label>
+            <label id="label-name" for="partner-contact-name">Representative Name *</label>
             <input type="text" id="partner-contact-name" class="form-control" placeholder="e.g. Jonathan Mercer" required>
           </div>
           <div class="form-group">
-            <label for="partner-email">Corporate Email Address *</label>
+            <label id="label-email" for="partner-email">Corporate Email Address *</label>
             <input type="email" id="partner-email" class="form-control" placeholder="procurement@company.com" required>
           </div>
         </div>
@@ -103,19 +185,64 @@
             <label for="partner-phone">Contact Phone Number *</label>
             <input type="tel" id="partner-phone" class="form-control" placeholder="+1 (555) 123-4567" required>
           </div>
-          <div class="form-group">
-            <label for="partner-volume">Target Monthly purchasing Volume *</label>
-            <select id="partner-volume" class="form-control" required>
-              <option value="">-- Choose Purchasing Level --</option>
-              <option value="tier_1">Small Wholesaler (< $10,000 / mo)</option>
-              <option value="tier_2">Mid-Tier distributor ($10,000 - $50,000 / mo)</option>
-              <option value="tier_3">Enterprise Buyer ($50,000 - $200,000 / mo)</option>
-              <option value="tier_4">Institutional Sourcing ($200,000+ / mo)</option>
+          
+          <!-- Wholesale Only: Company Name -->
+          <div class="form-group wholesale-only">
+            <label for="partner-biz-name">Company Legal Name *</label>
+            <input type="text" id="partner-biz-name" class="form-control" placeholder="e.g. Paramount Brands Inc" required>
+          </div>
+
+          <!-- Repair Only: Device Type select -->
+          <div class="form-group repair-only" style="display: none;">
+            <label for="repair-device-type">Device Category *</label>
+            <select id="repair-device-type" class="form-control">
+              <option value="">-- Choose Category --</option>
+              <option value="headphones">Over-Ear Headphones</option>
+              <option value="headsets">Gaming / Bluetooth Headset</option>
+              <option value="earbuds">Wireless Earbuds</option>
+              <option value="hairdryers">Dyson Dryer / Airwrap</option>
+              <option value="btc_miners">ASIC Crypto Miner</option>
             </select>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-row">
+          <!-- Wholesale Only: Tax License -->
+          <div class="form-group wholesale-only">
+            <label for="partner-tax-id">Trade License / Tax ID (Optional)</label>
+            <input type="text" id="partner-tax-id" class="form-control" placeholder="e.g. EU-987654321 or US-EIN">
+          </div>
+
+          <!-- Wholesale Only: Target Volume -->
+          <div class="form-group wholesale-only">
+            <label for="partner-volume">Target Monthly Purchasing Volume *</label>
+            <select id="partner-volume" class="form-control" required>
+              <option value="">-- Choose Purchasing Level --</option>
+              <option value="tier_1">Small Wholesaler (&lt; $10,000 / mo)</option>
+              <option value="tier_2">Mid-Tier Distributor ($10,000 - $50,000 / mo)</option>
+              <option value="tier_3">Enterprise Buyer ($50,000 - $200,000 / mo)</option>
+              <option value="tier_4">Institutional Sourcing ($200,000+ / mo)</option>
+            </select>
+          </div>
+
+          <!-- Repair Only: Brand & Model -->
+          <div class="form-group repair-only" style="display: none; flex: 1;">
+            <label for="repair-brand-model">Hardware Brand & Exact Model *</label>
+            <input type="text" id="repair-brand-model" class="form-control" placeholder="e.g. Bose QC45 or Antminer S19 Pro">
+          </div>
+
+          <!-- Repair Only: Drop-off location selection -->
+          <div class="form-group repair-only" style="display: none; flex: 1;">
+            <label for="repair-location">Drop-off / Shipping Method *</label>
+            <select id="repair-location" class="form-control">
+              <option value="vaughan">Physical Drop-off (Vaughan Head Lab)</option>
+              <option value="mail_in">Ontario Mail-In (Canada Post Insured)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Wholesale Only: Preferred Categories checkboxes -->
+        <div class="form-group wholesale-only">
           <label style="margin-bottom: 12px;">Preferred Inventories of Interest *</label>
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 8px;">
             <label class="checkbox-label" style="margin-bottom: 0;">
@@ -137,12 +264,19 @@
           </div>
         </div>
 
-        <div class="form-group" style="margin-top: 24px;">
+        <!-- Wholesale Only Notes -->
+        <div class="form-group wholesale-only" style="margin-top: 24px;">
           <label for="partner-notes">Custom Sourcing Specifications / Core Targets</label>
-          <textarea id="partner-notes" class="form-control" rows="4" placeholder="Detail standard shipping terms (EXW, FOB, DDP), frequency of purchasing, target models, or customized voltage requirements..."></textarea>
+          <textarea id="partner-notes" class="form-control" rows="4" placeholder="Detail standard shipping terms (EXW, FOB, DDP), frequency of purchasing, target models..."></textarea>
         </div>
 
-        <button type="submit" class="btn-silver" style="width: 100%; justify-content: center; margin-top: 16px;">Register Commercial Account</button>
+        <!-- Repair Only Symptoms -->
+        <div class="form-group repair-only" style="margin-top: 24px; display: none;">
+          <label for="repair-symptoms">Device Failure Symptoms & Hardware History *</label>
+          <textarea id="repair-symptoms" class="form-control" rows="4" placeholder="Detail exactly what fails (e.g., left driver crackles, red blinking charging indicator light, missing ASIC chips, PSU fan does not spin)..."></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-silver" style="width: 100%; justify-content: center; margin-top: 20px; font-weight: 700;">Register Commercial Account</button>
       </form>
     </div>
   </section>
@@ -159,52 +293,236 @@
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("wholesale-partner-form");
       const formContainer = document.getElementById("form-container");
-
-      // Set interest checkbox prefilled if URL includes hash target categories
+      
+      // Elements
+      const toggleWholesale = document.getElementById("toggle-wholesale");
+      const toggleRepair = document.getElementById("toggle-repair");
+      const formTitle = document.getElementById("form-title");
+      const formSubtitle = document.getElementById("form-subtitle");
+      const submitBtn = document.getElementById("submit-btn");
+      
+      const labelName = document.getElementById("label-name");
+      const labelEmail = document.getElementById("label-email");
+      
+      const wholesaleOnlyElements = document.querySelectorAll(".wholesale-only");
+      const repairOnlyElements = document.querySelectorAll(".repair-only");
+      
+      // Inputs to toggle required
+      const bizNameInput = document.getElementById("partner-biz-name");
+      const volumeInput = document.getElementById("partner-volume");
+      
+      const repairCategorySelect = document.getElementById("repair-device-type");
+      const repairBrandModelInput = document.getElementById("repair-brand-model");
+      const repairLocationSelect = document.getElementById("repair-location");
+      const repairSymptomsInput = document.getElementById("repair-symptoms");
+      
+      let currentMode = "wholesale"; // 'wholesale' or 'repair'
+      
+      function setMode(mode) {
+        currentMode = mode;
+        if (mode === "wholesale") {
+          // Button state
+          toggleWholesale.style.background = "var(--accent-gold)";
+          toggleWholesale.style.color = "black";
+          toggleRepair.style.background = "transparent";
+          toggleRepair.style.color = "var(--text-muted)";
+          
+          // Header / titles
+          formTitle.textContent = "Commercial Partner Intake";
+          formSubtitle.textContent = "Register your corporate distribution profile below to gain access to detailed warehouse pricing sheets, custom shipping allocations, and port clearing terms.";
+          submitBtn.textContent = "Register Commercial Account";
+          
+          labelName.textContent = "Representative Name *";
+          labelEmail.textContent = "Corporate Email Address *";
+          
+          // Show wholesale / hide repair
+          wholesaleOnlyElements.forEach(el => el.style.display = "");
+          repairOnlyElements.forEach(el => el.style.display = "none");
+          
+          // Toggle required
+          bizNameInput.required = true;
+          volumeInput.required = true;
+          
+          repairCategorySelect.required = false;
+          repairBrandModelInput.required = false;
+          repairLocationSelect.required = false;
+          repairSymptomsInput.required = false;
+        } else {
+          // Button state
+          toggleRepair.style.background = "var(--accent-gold)";
+          toggleRepair.style.color = "black";
+          toggleWholesale.style.background = "transparent";
+          toggleWholesale.style.color = "var(--text-muted)";
+          
+          // Header / titles
+          formTitle.textContent = "Book Local Repair / Diagnostic Quote";
+          formSubtitle.textContent = "Submit your repair details. Our Vaughan technical service desk will review your diagnostic profile and confirm your mail-in or walk-in timeline.";
+          submitBtn.textContent = "Submit Repair Ticket & Lock Price";
+          
+          labelName.textContent = "Customer Name *";
+          labelEmail.textContent = "Email Address *";
+          
+          // Show repair / hide wholesale
+          wholesaleOnlyElements.forEach(el => el.style.display = "none");
+          repairOnlyElements.forEach(el => el.style.display = "");
+          
+          // Toggle required
+          bizNameInput.required = false;
+          volumeInput.required = false;
+          
+          repairCategorySelect.required = true;
+          repairBrandModelInput.required = true;
+          repairLocationSelect.required = true;
+          repairSymptomsInput.required = true;
+        }
+      }
+      
+      toggleWholesale.addEventListener("click", () => setMode("wholesale"));
+      toggleRepair.addEventListener("click", () => setMode("repair"));
+      
+      // Parse URL parameters
       const params = new URLSearchParams(window.location.search);
+      const modeParam = params.get("mode");
+      const categoryParam = params.get("category");
       const interestParam = params.get("interest");
+      
       if (interestParam) {
         document.querySelectorAll('input[name="interest"]').forEach(cb => {
           if (cb.value === interestParam) cb.checked = true;
         });
       }
-
+      
+      if (modeParam === "repair") {
+        setMode("repair");
+        if (categoryParam) {
+          repairCategorySelect.value = categoryParam;
+        }
+      }
+      
+      // Form submit handler
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         
-        const repName = document.getElementById("partner-contact-name").value;
-        const bizName = document.getElementById("partner-biz-name").value;
-        const repEmail = document.getElementById("partner-email").value;
-
-        // Animate smooth height contraction and transition to custom onboarding panel
+        const contactName = document.getElementById("partner-contact-name").value;
+        const email = document.getElementById("partner-email").value;
+        const phone = document.getElementById("partner-phone").value;
+        
         formContainer.style.opacity = 0;
         
         setTimeout(() => {
-          formContainer.innerHTML = `
-            <div style="text-align: center; padding: 40px 10px;">
-              <div class="quality-shield-icon" style="margin: 0 auto 28px auto; width: 80px; height: 80px; background: var(--metallic-grad);">
-                <svg viewBox="0 0 24 24" style="width: 36px; height: 36px; stroke: hsl(220, 30%, 15%); stroke-width: 2.4; fill: none;">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="8.5" cy="7" r="4"/>
-                  <line x1="20" y1="8" x2="20" y2="14"/>
-                  <line x1="23" y1="11" x2="17" y2="11"/>
-                </svg>
+          if (currentMode === "wholesale") {
+            const bizName = bizNameInput.value;
+            formContainer.innerHTML = `
+              <div style="text-align: center; padding: 40px 10px;">
+                <div class="quality-shield-icon" style="margin: 0 auto 28px auto; width: 80px; height: 80px; background: var(--metallic-grad);">
+                  <svg viewBox="0 0 24 24" style="width: 36px; height: 36px; stroke: hsl(220, 30%, 15%); stroke-width: 2.4; fill: none;">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="8.5" cy="7" r="4"/>
+                    <line x1="20" y1="8" x2="20" y2="14"/>
+                    <line x1="23" y1="11" x2="17" y2="11"/>
+                  </svg>
+                </div>
+                <h2 style="font-family: 'Outfit'; font-size: 2.2rem; margin-bottom: 16px; color: var(--text-main);">Partnership Registered Successfully</h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
+                  Welcome aboard, <strong>${contactName}</strong>. Your commercial wholesale partner registration for <strong>${bizName}</strong> has been logged by our systems.
+                </p>
+                <div style="background: var(--bg-secondary); max-width: 500px; margin: 0 auto 36px auto; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-light); text-align: left;">
+                  <h4 style="font-family: 'Outfit'; font-weight: 700; margin-bottom: 12px;">Next Steps:</h4>
+                  <ul style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+                    <li>We will dispatch our complete excel wholesale pricing catalog spreadsheet to <strong>${email}</strong> within 15 minutes.</li>
+                    <li>A logistics lead account director will call your team to confirm loading bay sizes and custom pallet freight rates.</li>
+                    <li>Your commercial credential key will allow direct integration with our shipping dispatch systems.</li>
+                  </ul>
+                </div>
+                <a href="products.html" class="btn-silver">Browse Wholesale Catalog</a>
               </div>
-              <h2 style="font-family: 'Outfit'; font-size: 2.2rem; margin-bottom: 16px; color: var(--text-main);">Partnership Registered Successfully</h2>
-              <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Welcome aboard, <strong>${repName}</strong>. Your commercial wholesale partner registration for <strong>${bizName}</strong> has been logged by our systems.
-              </p>
-              <div style="background: var(--bg-secondary); max-width: 500px; margin: 0 auto 36px auto; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-light); text-align: left;">
-                <h4 style="font-family: 'Outfit'; font-weight: 700; margin-bottom: 12px;">Next Steps:</h4>
-                <ul style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
-                  <li>We will dispatch our complete excel wholesale pricing catalog spreadsheet to <strong>${repEmail}</strong> within 15 minutes.</li>
-                  <li>A logistics lead account director will call your team to confirm loading bay sizes and custom pallet freight rates.</li>
-                  <li>Your commercial credential key will allow direct integration with our shipping dispatch systems.</li>
-                </ul>
+            `;
+          } else {
+            // Repair ticket submission
+            const deviceCat = repairCategorySelect.value;
+            const brandModel = repairBrandModelInput.value;
+            const locationVal = repairLocationSelect.value;
+            
+            // Random Ticket ID
+            const ticketId = "ST-REP-" + Math.floor(10000 + Math.random() * 90000);
+            
+            // Diagnostic base fee lookup
+            const feeMap = {
+              headphones: "$39.99 CAD",
+              headsets: "$39.99 CAD",
+              earbuds: "$29.99 CAD",
+              hairdryers: "$49.99 CAD",
+              btc_miners: "$89.99 CAD"
+            };
+            const lockedFee = feeMap[deviceCat] || "$39.99 CAD";
+            
+            // Location/Drop-off specifics
+            let locationDetails = "";
+            if (locationVal === "vaughan") {
+              locationDetails = `
+                <div style="background: var(--bg-secondary); border-left: 4px solid var(--accent-gold); padding: 16px 20px; margin: 20px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+                  <h5 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 1rem; font-weight: 800; font-family: 'Outfit';">🏢 Physical Drop-Off Approved</h5>
+                  <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+                    Please bring your device to our <strong>Vaughan Tech Laboratory</strong>:<br>
+                    <strong>Sterling Technology Labs</strong><br>
+                    📍 8400 Jane St, Unit 5, Vaughan, ON L4K 4L8<br>
+                    ⏰ Hours: Mon - Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM<br>
+                    <em>No appointment required. Please show this Ticket ID at the intake desk.</em>
+                  </p>
+                </div>
+              `;
+            } else {
+              locationDetails = `
+                <div style="background: var(--bg-secondary); border-left: 4px solid #3b82f6; padding: 16px 20px; margin: 20px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+                  <h5 style="margin: 0 0 6px 0; color: var(--text-main); font-size: 1rem; font-weight: 800; font-family: 'Outfit';">📦 Canada Post Mail-In Instructions</h5>
+                  <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+                    A prepaid, fully insured Canada Post shipping label has been dispatched to <strong>${email}</strong>.<br>
+                    <strong>Instructions:</strong><br>
+                    1. Securely package your <strong>${brandModel}</strong> in a bubble-wrap box.<br>
+                    2. Write Ticket ID <strong>${ticketId}</strong> clearly on the exterior of the box.<br>
+                    3. Drop off at any Canada Post branch.<br>
+                    Shipping Destination: <strong>Sterling Sourcing & Repair Lab (Receiving Desk)</strong>, 8400 Jane St, Unit 5, Vaughan, ON L4K 4L8.
+                  </p>
+                </div>
+              `;
+            }
+            
+            formContainer.innerHTML = `
+              <div style="text-align: center; padding: 40px 10px;">
+                <div class="quality-shield-icon" style="margin: 0 auto 28px auto; width: 80px; height: 80px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(234,179,8,0.3);">
+                  <svg viewBox="0 0 24 24" style="width: 36px; height: 36px; stroke: black; stroke-width: 2.4; fill: none;">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                  </svg>
+                </div>
+                <h2 style="font-family: 'Outfit'; font-size: 2.2rem; margin-bottom: 8px; color: var(--text-main);">Repair Diagnostic Ticket Logged</h2>
+                <div style="display: inline-block; background: rgba(234, 179, 8, 0.1); border: 1px solid var(--accent-gold); padding: 8px 16px; border-radius: var(--radius-sm); font-family: monospace; font-size: 1.15rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 24px; letter-spacing: 1px;">
+                  TICKET ID: ${ticketId}
+                </div>
+                <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 24px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
+                  Thank you, <strong>${contactName}</strong>. Your repair request for <strong>${brandModel}</strong> has been logged. Your base diagnostic fee of <strong>${lockedFee}</strong> has been securely locked in.
+                </p>
+                
+                <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+                  ${locationDetails}
+                  
+                  <div style="background: rgba(0,0,0,0.02); border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md);">
+                    <h5 style="margin: 0 0 10px 0; color: var(--text-main); font-size: 1rem; font-weight: 700; font-family: 'Outfit';">🛡️ Repair Process Milestones:</h5>
+                    <ol style="margin: 0; padding-left: 20px; color: var(--text-muted); font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px; line-height: 1.4;">
+                      <li><strong>Intake Inspection:</strong> Unboxing and cosmetic audit within 2 hours of arrival.</li>
+                      <li><strong>Microscopic Diagnosis:</strong> Isolation of circuit, electrical resistance, and mechanical elements.</li>
+                      <li><strong>Price Approval:</strong> We will provide a formal repair quote before swapping components.</li>
+                      <li><strong>Continuous Stress-Test:</strong> 48-hour continuous operational burn-in to verify fix stability.</li>
+                    </ol>
+                  </div>
+                </div>
+                
+                <div style="margin-top: 36px; display: flex; gap: 16px; justify-content: center;">
+                  <a href="index.html" class="btn-ghost">Back to Home</a>
+                  <a href="company.html#repair" class="btn-silver" onclick="window.location.reload();">Log Another Device</a>
+                </div>
               </div>
-              <a href="products.html" class="btn-silver">Browse Wholesale Catalog</a>
-            </div>
-          `;
+            `;
+          }
           formContainer.style.opacity = 1;
           formContainer.style.transition = "opacity 0.4s ease";
         }, 300);

@@ -38,12 +38,13 @@ function injectGlobalLayout() {
         <ul class="nav-menu" id="nav-menu-list">
           <li><a href="index.html" class="nav-link ${pageName === "index.html" ? "active" : ""}">Home</a></li>
           <li><a href="products.html" class="nav-link ${pageName === "products.html" || pageName === "product-detail.html" ? "active" : ""}">Products</a></li>
+          <li><a href="company.html#repair" class="nav-link">Repair Services</a></li>
           <li><a href="instagram.html" class="nav-link ${pageName === "instagram.html" ? "active" : ""}">Instagram Showcase</a></li>
           <li><a href="company.html" class="nav-link ${pageName === "company.html" ? "active" : ""}">Company Portal</a></li>
         </ul>
       </nav>
       <div class="header-cta" style="display: flex; gap: 16px; align-items: center;">
-        <a href="company.html#inquiry" class="btn-silver header-inquiry-btn">Inquiry Hub</a>
+        <a href="company.html#inquiry" class="btn-silver header-inquiry-btn">Sourcing & Repairs</a>
         <button class="hamburger-btn" id="mobile-nav-toggle" aria-label="Toggle Navigation">
           <span></span>
           <span></span>
